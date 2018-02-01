@@ -39,6 +39,12 @@
         <sap.cloud.host>hana.ondemand.com</sap.cloud.host>
 
         <!-- Property that holds the name of the application under which it will later appear in the cloud -->
+        <sap.cloud.api>${env.CF_API}</sap.cloud.api>
+        <sap.cloud.org>${env.CF_ORGANIZATION}</sap.cloud.org>
+        <sap.cloud.space>${env.CF_SPACE}</sap.cloud.space>
+        <sap.cloud.username>${env.CF_USERNAME}</sap.cloud.username>
+        <sap.cloud.password>${env.CF_PASSWORD}</sap.cloud.password>
+
         <sap.cloud.application>sample</sap.cloud.application>
 
         <!-- Properties that hold the local server configuration required for local integration-testing -->
@@ -326,7 +332,7 @@
             </activation>
             <build>
                 <plugins>
-                    <plugin>
+                    <!-- <plugin>
                         <artifactId>maven-enforcer-plugin</artifactId>
                         <version>1.0.1</version>
                         <executions>
@@ -359,8 +365,8 @@
                         <configuration>
                             <skip>${skipIntegrationTests}</skip>
                         </configuration>
-                    </plugin>
-                    <plugin>
+                    </plugin> -->
+                    <!-- <plugin>
                         <groupId>com.sap.cloud</groupId>
                         <artifactId>${sap.cloud.sdk.plugin}</artifactId>
                         <executions>
@@ -377,11 +383,11 @@
                                 <goals>
                                     <goal>deploy</goal>
                                 </goals>
-                            </execution>
+                            </execution> -->
                             <!-- This execution can be overridden in the sample pom.xml in order to execute additional steps 
                                 between deployment and start of the sample application. The additional execution must be specified with the neo-java-web-maven-plugin 
                                 and the same id "prepare-cloud-application" and phase "pre-integration-test" -->
-                            <execution>
+                            <!-- <execution>
                                 <id>prepare-cloud-application</id>
                                 <phase>pre-integration-test</phase>
                             </execution>
@@ -412,8 +418,8 @@
                             <synchronous>true</synchronous>
                             <javaVersion>7</javaVersion>
                         </configuration>
-                    </plugin>
-                    <plugin>
+                    </plugin> -->
+                    <!-- <plugin>
                         <artifactId>maven-failsafe-plugin</artifactId>
                         <executions>
                             <execution>
@@ -440,7 +446,7 @@
                         <configuration>
                             <skip>${skipIntegrationTests}</skip>
                         </configuration>
-                    </plugin>
+                    </plugin> -->
                 </plugins>
             </build>
         </profile>
