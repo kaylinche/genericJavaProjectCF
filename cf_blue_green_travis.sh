@@ -61,8 +61,8 @@ sed -i -e "s?path: ?path: $CURRENTPATH/?g" $MANIFEST
 trap on_fail ERR
     
 # Prepare the URL of the green application
-DOMAIN=$CF_API
-cf push -f $MANIFEST
+DOMAIN=$CF_DOMAIN
+cf push -f $MANIFEST -p /tmp/$CF_APP.war
 GREENURL=https://${GREEN}.${DOMAIN}
     
 # Check the URL to find if it fails
