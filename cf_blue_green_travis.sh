@@ -42,6 +42,9 @@ on_fail () {
   exit 1 
 }
 
+#Store the current path
+CURRENTPATH=$(pwd)
+
 # Set the application name in BLUE variable
 BLUE=$CF_APP 
 
